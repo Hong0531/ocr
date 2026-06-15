@@ -76,7 +76,7 @@
 ## 프로젝트 구조
 
 ```text
-rag-project-final/
+AI_Document_Analyzer/
 ├─ main.py                  # FastAPI 진입점 및 API 라우트
 ├─ database.py              # SQLAlchemy 엔진/세션 생성
 ├─ models.py                # Category, Document, Job 테이블 정의
