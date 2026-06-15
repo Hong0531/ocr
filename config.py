@@ -43,15 +43,12 @@ HWP_TIMEOUT_SECONDS   = 60       # HWP → PDF 변환 타임아웃 (초)
 DIRECT_TEXT_MIN_CHARS = 100      # 직접 추출 텍스트 최소 길이 (이하면 OCR fallback)
 
 # ── LLM 설정 ──────────────────────────────────────────────────────────
-OLLAMA_MODEL   = os.getenv("OLLAMA_MODEL",   "qwen3:8b")
+OLLAMA_MODEL   = os.getenv("OLLAMA_MODEL",   "llama3.1:8b")
 OLLAMA_URL     = os.getenv("OLLAMA_URL",     "http://localhost:11434")
 OLLAMA_TIMEOUT = int(os.getenv("OLLAMA_TIMEOUT_SEC", "300"))
 
 # ── DB 설정 ───────────────────────────────────────────────────────────
 DATABASE_URL = os.getenv(
     "DATABASE_URL",
-    "postgresql+psycopg2://postgres:1234@localhost:5432/rag_db"
+    ""
 )
-
-# ── 임베딩 설정 ───────────────────────────────────────────────────────
-EMBEDDING_MODEL_NAME = os.getenv("EMBEDDING_MODEL_NAME", "jhgan/ko-sroberta-multitask")

@@ -155,7 +155,6 @@ copy .env.example .env
 - `DATABASE_URL`
 - `UPLOAD_DIR`
 - `WORK_DIR`
-- `CHROMA_DIR`
 - `OCR_OUTPUT_DIR`
 - `OLLAMA_URL`
 - `OLLAMA_MODEL`
@@ -327,31 +326,4 @@ python -m pip install pydantic-settings
 - Frontend: React, Vite, Axios
 - Database: PostgreSQL
 
----
 
-## 향후 개선 아이디어
-
-- `langchain_community.Ollama` → `langchain-ollama` 전환
-- 에러 메시지/로깅 표준화
-- 비동기 작업 큐(Celery/RQ) 도입
-- 검색 API 및 관리 UI 확장
-- 테스트 코드(단위/통합) 강화
-
-
-
----
-
-## RAG 관련 코드 제거 내역
-
-이번 정리 버전에서는 프로젝트 범위를 `문서 추출 → JSON 저장 → LLM 요약/분류 → DB 저장`으로 좁혔습니다.
-따라서 아래 요소를 제거했습니다.
-
-- `rag_pipeline.py`
-- 청킹 코드
-- 임베딩 모델 의존성
-- ChromaDB 저장 코드
-- `data/chroma`, `data/chroma_db` 런타임 폴더
-- `requirements.txt`의 `chromadb`, `sentence-transformers`, `langchain-text-splitters`
-- `llm_chain.py`의 LangChain 의존성
-
-현재 LLM 호출은 Ollama `/api/generate`를 직접 호출합니다.
